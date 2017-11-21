@@ -44,24 +44,22 @@
   font-size: 8vmin;
 }
 
-@media screen and (min-width: 0px) and (max-width: 400px) {
-  .flag-toggle {
-    position: absolute;
-    right: 0;
-    top: 3vmin;
-    font-size: 6vmin;
-    user-select: none;
-    outline: none;
-    background-color: #313131;
-    height: 10vmin;
-    width: 10vmin;
-    border-radius: 50%;
-    -moz-border-radius: 50%;
-    -webkit-border-radius: 50%;
-  }
+.flag-toggle {
+  position: absolute;
+  right: 0;
+  top: 3vmin;
+  font-size: 6vmin;
+  user-select: none;
+  outline: none;
+  background-color: #313131;
+  height: 10vmin;
+  width: 10vmin;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
 }
 
-@media screen and (min-width: 401px) and (max-width: 1024px) {
+@media only screen and (min-width:1025px) {
   .flag-toggle { display: none; }
 }
 

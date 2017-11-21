@@ -9,7 +9,7 @@ Using:
 
 Ready to play?
 -----
-[Try it here!](https://juancaacuna.github.io/minesweeper-react-redux/)
+[Try it here!](https://minesweeper-react-redux.herokuapp.com/)
 
 
 Testing

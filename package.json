@@ -1,6 +1,6 @@
 {
   "name": "minesweeper-react-redux",
-  "homepage": "https://juancaacuna.github.io/minesweeper-react-redux",
+  "homepage": "https://minesweeper-react-redux.herokuapp.com/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -24,7 +24,6 @@
     "chai": "^4.1.2",
     "enzyme": "^3.2.0",
     "enzyme-adapter-react-16": "^1.1.0",
-    "gh-pages": "^1.1.0",
     "redux-mock-store": "^1.3.0",
     "sinon": "^4.1.2"
   }
