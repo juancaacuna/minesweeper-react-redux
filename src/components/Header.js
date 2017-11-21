@@ -57,12 +57,13 @@ export class Header extends React.Component {
   }
 
   render() {
-    const { flagToggle } = this.props
+    const { flagToggle, rowCount } = this.props
     const classFlagToggle = !flagToggle ? 'gray-filter' : ''
+    const classHeaderTime = rowCount <= 5 ? 'header-time-small' : ''
 
     return(
       <div className="header">
-        <span className="header-time">{this.getTimerValue()}</span>
+        <span className={`header-time ${classHeaderTime}`}>{this.getTimerValue()}</span>
         <div className={`flag-toggle ${classFlagToggle}`} onClick={this.toggleFlag.bind(this)}>
           <span role="img" aria-label="flag">🚩</span>
         </div>
@@ -74,7 +75,8 @@ export class Header extends React.Component {
 function mapStateToProps(state) {
   return {
     gameStatus: state.minesGrid.GameStatus,
-    flagToggle: state.minesGrid.FlagToggle
+    flagToggle: state.minesGrid.FlagToggle,
+    rowCount: state.minesGrid.RowCount,
   }
 }
 

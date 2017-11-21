@@ -43,4 +43,14 @@ describe('Header', () => {
     const wrapper = enzyme.mount(<Header store={store} />)
     expect(wrapper.find('.gray-filter')).to.have.length(0)
   })
+
+  it('renders a `.header-time-small`', () => {
+    store = mockStore({
+      minesGrid: {
+        RowCount: 5
+      }
+    })
+    const wrapper = enzyme.mount(<Header store={store} />)
+    expect(wrapper.find('.header-time-small')).to.have.length(1)
+  })
 })

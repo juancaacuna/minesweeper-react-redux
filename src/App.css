@@ -44,6 +44,10 @@
   font-size: 8vmin;
 }
 
+.header-time-small {
+  width: 60%;
+}
+
 .flag-toggle {
   position: absolute;
   right: 0;
@@ -113,7 +117,7 @@
 }
 
 .cell-size-3 {
-  font-size: 3vmin;
+  font-size: 2vmin;
   width: 3vmin;
   height: 3vmin;
 }
