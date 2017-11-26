@@ -90,7 +90,7 @@ export class Records extends React.Component {
     const record = records.find(r => r.level === gameLevel)
     if (record) {
       // Try to get country
-      fetch('http://freegeoip.net/json/')
+      fetch('https://freegeoip.net/json/')
       .then(data => data.json())
       .then(json => {
         const country = json ? json.country_code : null
