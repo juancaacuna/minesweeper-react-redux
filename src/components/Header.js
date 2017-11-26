@@ -55,7 +55,8 @@ export class Header extends React.Component {
   }
 
   toggleFlag() {
-    if (this.props.gameStatus === gameStatus.IN_PROGRESS) {
+    const status = this.props.gameStatus
+    if (status === gameStatus.NEW || status === gameStatus.IN_PROGRESS) {
       this.props.actions.toggleFlag()
     }
   }
