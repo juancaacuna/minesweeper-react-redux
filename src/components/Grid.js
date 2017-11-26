@@ -23,11 +23,15 @@ class Grid extends React.Component {
   }
 
   openCell(cell) {
-    this.props.actions.openCell(cell)
+    if (this.props.minesGrid.GameStatus === gameStatus.IN_PROGRESS) {
+      this.props.actions.openCell(cell)
+    }
   }
 
   flagCell(cell) {
-    this.props.actions.flagCell(cell)
+    if (this.props.minesGrid.GameStatus === gameStatus.IN_PROGRESS) {
+      this.props.actions.flagCell(cell)
+    }
   }
 
   render() {

@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Minesweeper with React and Redux",
+  "short_name": "Minesweeper",
+  "name": "Minesweeper War",
   "icons": [
     {
       "src": "favicon.ico",

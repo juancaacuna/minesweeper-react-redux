@@ -128,7 +128,7 @@ MinesGrid.prototype.OpenAllCells = function(){
 }
 
 MinesGrid.prototype.IsWinner = function(){
-  let isWinner = true
+  let isWinner = this.GameStatus === gameStatus.IN_PROGRESS
   for(let row = 0; row < this.RowCount && isWinner; row++){
     for(let col = 0; col < this.ColCount && isWinner; col++){
       const cell = this.Grid[row][col]
