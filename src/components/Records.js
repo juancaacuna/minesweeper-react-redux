@@ -33,7 +33,6 @@ export class Records extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log(this.props.gameStatus, nextProps.gameStatus)
     const { records, user } = this.props
     const { gameStatus, gameLevel, timeAchieved } = nextProps
     const sayings = this.sayings
