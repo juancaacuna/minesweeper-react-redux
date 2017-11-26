@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as minesGridActions from '../actions/minesGridActions'
 import * as gameStatus from '../lib/gameStatus'
+import formatSecondsToTime from '../lib/formatSecondsToTime'
 
 export class Header extends React.Component {
   constructor(props) {
@@ -19,6 +20,9 @@ export class Header extends React.Component {
       nextStatus === gameStatus.GAME_OVER ||
       nextStatus === gameStatus.NEW) {
       this.stopTimer()
+      if (nextStatus === gameStatus.WIN) {
+        this.props.actions.setWinnerTime(this.state.timer)
+      }
     }
     if (this.props.gameStatus === gameStatus.NEW &&
       nextStatus === gameStatus.IN_PROGRESS) {
@@ -47,9 +51,7 @@ export class Header extends React.Component {
   }
   
   getTimerValue = function(){
-    const date = new Date(null)
-    date.setSeconds(this.state.timer)
-    return date.toISOString().substr(11, 8)
+    return formatSecondsToTime(this.state.timer)
   }
 
   toggleFlag() {
@@ -57,13 +59,12 @@ export class Header extends React.Component {
   }
 
   render() {
-    const { flagToggle, rowCount } = this.props
+    const { flagToggle } = this.props
     const classFlagToggle = !flagToggle ? 'gray-filter' : ''
-    const classHeaderTime = rowCount <= 5 ? 'header-time-small' : ''
 
     return(
       <div className="header">
-        <span className={`header-time ${classHeaderTime}`}>{this.getTimerValue()}</span>
+        <span className={`header-time`}>{this.getTimerValue()}</span>
         <div className={`flag-toggle ${classFlagToggle}`} onClick={this.toggleFlag.bind(this)}>
           <span role="img" aria-label="flag">🚩</span>
         </div>

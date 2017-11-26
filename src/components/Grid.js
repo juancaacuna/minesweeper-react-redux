@@ -38,7 +38,7 @@ class Grid extends React.Component {
     const GridRow = ({row}) => {
       const cellElements = row.map(cell => {
         return (
-          <td key={`${cell.x}${cell.y}`} className="cell-wrapper">
+          <td key={`${cell.x}${cell.y}`} className="cell-td">
             <Cell
               info={cell}
               gridRowCount={minesGrid.RowCount}

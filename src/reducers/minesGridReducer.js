@@ -9,6 +9,7 @@ const initialState = {
   MinesCount: 0,
   GameStatus: gameStatus.NEW,
   FlagToggle: false,
+  TimeAchieved: 0
 }
 let minesGrid = null
 
@@ -17,7 +18,10 @@ export default function (state = initialState, action) {
     minesGrid = new MinesGrid(initialState)
   }
   minesGrid.SetValues(state)
-  const newState = Object.assign({}, state)
+  const newState = {
+    FlagToggle: state.FlagToggle || false,
+    TimeAchieved: state.TimeAchieved || 0
+  }
 
   switch (action.type) {
     case actionTypes.INIT_MINES_GRID: {
@@ -38,14 +42,20 @@ export default function (state = initialState, action) {
       newState.FlagToggle = !newState.FlagToggle
       break
     }
+    case actionTypes.SET_WINNER_TIME: {
+      newState.TimeAchieved = action.time
+      break
+    }
     default: break
   }
+
   return {
     ...newState,
     Grid: minesGrid.Grid,
     RowCount: minesGrid.RowCount,
     ColCount: minesGrid.ColCount,
     MinesCount: minesGrid.MinesCount,
-    GameStatus: minesGrid.GameStatus
+    GameStatus: minesGrid.GameStatus,
+    TimeAchieved: newState.TimeAchieved
   }
 }

@@ -9,14 +9,17 @@ import registerServiceWorker from './registerServiceWorker'
 import rootReducer from './reducers'
 import './index.css'
 
-const logger = createLogger({ collapsed: (getState, action, logEntry) => !logEntry.error  })
-
 // redux related book keeping
 function configureStore(initialState) {
+  const middlewares = [thunkMiddleware]
+  
+  if (process.env.NODE_ENV === `development`) {
+    const logger = createLogger({ collapsed: (getState, action, logEntry) => !logEntry.error  })
+    middlewares.push(logger);
+  }
   const enhancer = compose(
     applyMiddleware(
-      thunkMiddleware, // allow us to dispatch() functions
-      logger
+      ...middlewares
     )
   )
   return createStore(rootReducer, initialState, enhancer)

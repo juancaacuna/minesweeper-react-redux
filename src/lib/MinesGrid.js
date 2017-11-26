@@ -49,9 +49,13 @@ MinesGrid.prototype.InitGrid = function() {
 MinesGrid.prototype.OpenCell = function(cell) {
   if(cell && !cell.isOpened){
     if(cell.hasMine){
-      this.OpenAllCells()
-      this.GameStatus = gameStatus.GAME_OVER
-      return
+      if (this.GameStatus === gameStatus.NEW) {
+        this.SwapMine(cell)
+      } else {
+        this.OpenAllCells()
+        this.GameStatus = gameStatus.GAME_OVER
+        return
+      }
     }
     if (this.GameStatus === gameStatus.NEW) {
       this.GameStatus = gameStatus.IN_PROGRESS
@@ -59,6 +63,9 @@ MinesGrid.prototype.OpenCell = function(cell) {
     this.SetCellInfo(cell, { isOpened: true, hasFlag: false })
     if(cell.minesAround === 0){
       this.OpenAround(cell)
+    }
+    if (this.IsWinner()) {
+      this.GameStatus = gameStatus.WIN
     }
   }
 }
@@ -83,6 +90,9 @@ MinesGrid.prototype.FlagCell = function(cellInfo) {
   cell.hasFlag = !cell.hasFlag
   if (this.GameStatus === gameStatus.NEW) {
     this.GameStatus = gameStatus.IN_PROGRESS
+  }
+  if (this.IsWinner()) {
+    this.GameStatus = gameStatus.WIN
   }
 }
 
@@ -115,6 +125,31 @@ MinesGrid.prototype.OpenAllCells = function(){
       this.SetCellInfo(cell, { isOpened: true, hasFlag: false })
     })
   })
+}
+
+MinesGrid.prototype.IsWinner = function(){
+  let isWinner = true
+  for(let row = 0; row < this.RowCount && isWinner; row++){
+    for(let col = 0; col < this.ColCount && isWinner; col++){
+      const cell = this.Grid[row][col]
+      isWinner = cell.isOpened || (cell.hasFlag && cell.hasMine)
+    }
+  }
+  return isWinner
+}
+
+MinesGrid.prototype.SwapMine = function(cell){
+  let swapped = false
+  for(let row = 0; row < this.RowCount && !swapped; row++){
+    for(let col = 0; col < this.ColCount && !swapped; col++){
+      const c = this.Grid[row][col]
+      if (!c.hasMine) {
+        cell.hasMine = false
+        c.hasMine = true
+        swapped = true
+      }
+    }
+  }
 }
 
 export default MinesGrid

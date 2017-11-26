@@ -1,6 +1,7 @@
 import * as actionTypes from '../../../actions/actionTypes'
 import MinesGrid from '../../../lib/MinesGrid'
 import * as gameStatus from '../../../lib/gameStatus'
+import { setTimeout } from 'timers';
 
 const minesGrid = new MinesGrid()
 
@@ -51,7 +52,7 @@ describe('MinesGrid', () => {
   it('should open cell', () => {
     const expected = {
       ColCount: 1,
-      GameStatus: gameStatus.GAME_OVER,
+      GameStatus: gameStatus.WIN,
       Grid: [[{ hasFlag: false, hasMine: true, isOpened: true, minesAround: 1, x: 0, y: 0 }]],
       MinesCount: 0.2,
       RowCount: 1,
@@ -64,7 +65,7 @@ describe('MinesGrid', () => {
   it('should flag cell', () => {
     const expected = {
       ColCount: 1,
-      GameStatus: gameStatus.IN_PROGRESS,
+      GameStatus: gameStatus.WIN,
       Grid: [[{ hasFlag: true, hasMine: true, isOpened: false, minesAround: -1, x: 0, y: 0 }]],
       MinesCount: 0.2,
       RowCount: 1,
@@ -118,5 +119,27 @@ describe('MinesGrid', () => {
     })
     const expected = Array.apply(null, { length: minesGrid.RowCount }).map(() => 0)
     expect(openedCells).toEqual(expected)
+  })
+
+  it('should return true if user if winner', () => {
+    minesGrid.InitGrid()
+    minesGrid.Grid.forEach(row => {
+      row.forEach(cell => {
+        if (!cell.hasMine) {
+          minesGrid.OpenCell(cell)
+        } else {
+          minesGrid.FlagCell(cell)
+        }
+      })
+    })
+    expect(minesGrid.IsWinner()).toEqual(true)
+  })
+
+  it('should swap mine if first one has a mine', () => {
+    minesGrid.InitGrid()
+    const cell = minesGrid.Grid[2][1]
+    cell.hasMine = true
+    minesGrid.SwapMine(cell)
+    expect(cell.hasMine).toEqual(false)
   })
 })

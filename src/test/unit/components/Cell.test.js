@@ -53,28 +53,28 @@ describe('Cell', () => {
     expect(wrapper.find('.cell-bomb')).to.have.length(1)
   })
 
-  it('renders a `.cell-size-3`', () => {
+  it('renders a `.cell-level-19`', () => {
     gridRowCount = 19
     const wrapper = enzyme.mount(<Cell info={info} gridRowCount={gridRowCount} />)
-    expect(wrapper.find('.cell-size-3')).to.have.length(1)
+    expect(wrapper.find('.cell-level-19')).to.have.length(1)
   })
 
-  it('renders a `.cell-size-4`', () => {
-    gridRowCount = 14
+  it('renders a `.cell-level-4`', () => {
+    gridRowCount = 4
     const wrapper = enzyme.mount(<Cell info={info} gridRowCount={gridRowCount} />)
-    expect(wrapper.find('.cell-size-4')).to.have.length(1)
+    expect(wrapper.find('.cell-level-4')).to.have.length(1)
   })
 
-  it('renders a `.cell-size-7`', () => {
+  it('renders a `.cell-level-8`', () => {
     gridRowCount = 8
     const wrapper = enzyme.mount(<Cell info={info} gridRowCount={gridRowCount} />)
-    expect(wrapper.find('.cell-size-7')).to.have.length(1)
+    expect(wrapper.find('.cell-level-8')).to.have.length(1)
   })
 
-  it('renders a `.cell-size-10`', () => {
+  it('not render a `.cell-level-10`', () => {
     gridRowCount = 3
     const wrapper = enzyme.mount(<Cell info={info} gridRowCount={gridRowCount} />)
-    expect(wrapper.find('.cell-size-10')).to.have.length(1)
+    expect(wrapper.find('.cell-level-10')).to.have.length(0)
   })
 
   it('simulates open-cell event', () => {

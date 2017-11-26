@@ -43,3 +43,14 @@ function toggleFlagSuccess() {
     type: actionTypes.FLAG_TOGGLE
   }
 }
+
+export function setWinnerTime(time) {
+  return setWinnerTimeSuccess.apply(this, arguments)
+}
+
+function setWinnerTimeSuccess(time) {
+  return {
+    type: actionTypes.SET_WINNER_TIME,
+    time
+  }
+}

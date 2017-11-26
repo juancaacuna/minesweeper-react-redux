@@ -44,15 +44,10 @@ export default class Cell extends React.Component {
     }
 
     const rowsCount = this.props.gridRowCount
-    let classSize = ''
-    classSize = rowsCount >= 19 ? 'cell-size-3' : classSize
-    classSize = rowsCount >= 14 && rowsCount < 19 ? 'cell-size-4' : classSize
-    classSize = rowsCount > 7 && rowsCount < 11 ? 'cell-size-7' : classSize
-    classSize = rowsCount <= 7 ? 'cell-size-10' : classSize
 
     const CellElement = () => {
       return (
-        <div className={`cell ${className} ${classSize}`}>
+        <div className={`cell ${className}`}>
           { isOpened && hasMine &&
             <span role="img" aria-label="bomb">💣</span>
           }
@@ -66,7 +61,7 @@ export default class Cell extends React.Component {
       )
     }
     return (
-      <div id="cell-wrapper" onClick={this.openCell.bind(this)} onContextMenu={this.flagCell.bind(this)}>
+      <div id="cell-wrapper" className={`cell-wrapper cell-level-${rowsCount}`} onClick={this.openCell.bind(this)} onContextMenu={this.flagCell.bind(this)}>
         <CellElement />
       </div>
     );

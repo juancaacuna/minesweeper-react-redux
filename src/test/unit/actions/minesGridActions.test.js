@@ -46,4 +46,13 @@ describe('minesGridActions', () => {
     store.dispatch(minesGridActions.toggleFlag())
     expect(store.getActions()).toEqual(expectedActions)
   })
+
+  it('should dispatch setWinnerTime success action', () => {
+    const expectedActions = [
+      { type: actionTypes.SET_WINNER_TIME },
+    ]
+
+    store.dispatch(minesGridActions.setWinnerTime())
+    expect(store.getActions()).toEqual(expectedActions)
+  })
 })
