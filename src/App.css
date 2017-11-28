@@ -59,8 +59,16 @@
 .records-title {
   font-size: 6.6vmin;
   font-weight: bold;
-  margin-bottom: 3vmin;
+  margin-bottom: 2vmin;
   display: block;
+}
+
+.records-sub-title {
+  font-size: 3.6vmin;
+  font-weight: bold;
+  margin: -2vmin 0 2vmin 0;
+  display: block;
+  color: #fff700;
 }
 
 .records-spinner {
@@ -87,7 +95,7 @@
   font-family: 'Courier';
   padding: 7vmin 0;
   display: inline-table;
-  margin-top: 4vmin;
+  margin-top: 3vmin;
   text-align: center;
   background-color: rgb(0, 45, 104);
 }
@@ -202,211 +210,43 @@
 }
 
 @media only screen and (max-width:1025px) {
-  .cell-level-20 {
-    font-size: 2.7vmin;
-    width: 2.7vmax;
-    height: 2.7vmax;
-  }
-
-  .cell-level-19 {
-    font-size: 2.9vmin;
-    width: 2.9vmax;
-    height: 2.9vmax;
-  }
-
-  .cell-level-18 {
-    font-size: 3.1vmin;
-    width: 3.1vmax;
-    height: 3.1vmax;
-  }
-
-  .cell-level-17 {
-    font-size: 3.3vmin;
-    width: 3.3vmax;
-    height: 3.3vmax;
-  }
-
-  .cell-level-16 {
-    font-size: 3.5vmin;
-    width: 3.5vmax;
-    height: 3.5vmax;
-  }
-
-  .cell-level-15 {
-    font-size: 3.7vmin;
-    width: 3.7vmax;
-    height: 3.7vmax;
-  }
-
-  .cell-level-14 {
-    font-size: 4vmin;
-    width: 4vmax;
-    height: 4vmax;
-  }
-
-  .cell-level-13 {
-    font-size: 4.3vmin;
-    width: 4.3vmax;
-    height: 4.3vmax;
-  }
-
-  .cell-level-12 {
-    font-size: 4.6vmin;
-    width: 4.6vmax;
-    height: 4.6vmax;
-  }
-
-  .cell-level-11 {
-    font-size: 5vmin;
-    width: 5vmax;
-    height: 5vmax;
-  }
-
-  .cell-level-10 {
-    font-size: 5.5vmin;
-    width: 5.5vmax;
-    height: 5.5vmax;
-  }
-
-  .cell-level-9 {
-    font-size: 6vmin;
-    width: 6vmax;
-    height: 6vmax;
-  }
-
-  .cell-level-8 {
-    font-size: 7vmin;
-    width: 7vmax;
-    height: 7vmax;
-  }
-
-  .cell-level-7 {
-    font-size: 8vmin;
-    width: 8vmax;
-    height: 8vmax;
-  }
-
-  .cell-level-6 {
-    font-size: 9vmin;
-    width: 9vmax;
-    height: 9vmax;
-  }
-
-  .cell-level-5 {
-    font-size: 11vmin;
-    width: 11vmax;
-    height: 11vmax;
-  }
-
-  .cell-level-4 {
-    font-size: 13.5vmin;
-    width: 13.5vmax;
-    height: 13.5vmax;
-  }
+  .cell-level-4 { font-size: 23.75vmin; width: 23.75vmin; height: 23.75vmin; }
+  .cell-level-5 { font-size: 19vmin; width: 19vmin; height: 19vmin; }
+  .cell-level-6 { font-size: 15.83vmin; width: 15.83vmin; height: 15.83vmin; }
+  .cell-level-7 { font-size: 13.57vmin; width: 13.57vmin; height: 13.57vmin; }
+  .cell-level-8 { font-size: 11.88vmin; width: 11.88vmin; height: 11.88vmin; }
+  .cell-level-9 { font-size: 10.56vmin; width: 10.56vmin; height: 10.56vmin; }
+  .cell-level-10 { font-size: 9.5vmin; width: 9.5vmin; height: 9.5vmin; }
+  .cell-level-11 { font-size: 8.64vmin; width: 8.64vmin; height: 8.64vmin; }
+  .cell-level-12 { font-size: 7.92vmin; width: 7.92vmin; height: 7.92vmin; }
+  .cell-level-13 { font-size: 7.31vmin; width: 7.31vmin; height: 7.31vmin; }
+  .cell-level-14 { font-size: 6.79vmin; width: 6.79vmin; height: 6.79vmin; }
+  .cell-level-15 { font-size: 6.33vmin; width: 6.33vmin; height: 6.33vmin; }
+  .cell-level-16 { font-size: 5.94vmin; width: 5.94vmin; height: 5.94vmin; }
+  .cell-level-17 { font-size: 5.59vmin; width: 5.59vmin; height: 5.59vmin; }
+  .cell-level-18 { font-size: 5.28vmin; width: 5.28vmin; height: 5.28vmin; }
+  .cell-level-19 { font-size: 5vmin; width: 5vmin; height: 5vmin; }
+  .cell-level-20 { font-size: 4.75vmin; width: 4.75vmin; height: 4.75vmin; }
 }
 
 @media only screen and (min-width:1025px) {
-  .cell-level-20 {
-    font-size: 1.6vmax;
-    width: 2.5vmax;
-    height: 2.5vmax;
-  }
-
-  .cell-level-19 {
-    font-size: 1.9vmax;
-    width: 2.7vmax;
-    height: 2.7vmax;
-  }
-
-  .cell-level-18 {
-    font-size: 2.1vmax;
-    width: 2.9vmax;
-    height: 2.9vmax;
-  }
-
-  .cell-level-17 {
-    font-size: 2.3vmax;
-    width: 3.1vmax;
-    height: 3.1vmax;
-  }
-
-  .cell-level-16 {
-    font-size: 2.4vmax;
-    width: 3.3vmax;
-    height: 3.3vmax;
-  }
-
-  .cell-level-15 {
-    font-size: 2.6vmax;
-    width: 3.6vmax;
-    height: 3.6vmax;
-  }
-
-  .cell-level-14 {
-    font-size: 2.7vmax;
-    width: 3.7vmax;
-    height: 3.7vmax;
-  }
-
-  .cell-level-13 {
-    font-size: 4vmin;
-    width: 5.5vmin;
-    height: 5.5vmin;
-  }
-
-  .cell-level-12 {
-    font-size: 4vmin;
-    width: 6vmin;
-    height: 6vmin;
-  }
-
-  .cell-level-11 {
-    font-size: 4.5vmin;
-    width: 6.5vmin;
-    height: 6.5vmin;
-  }
-
-  .cell-level-10 {
-    font-size: 5vmin;
-    width: 7.5vmin;
-    height: 7.5vmin;
-  }
-
-  .cell-level-9 {
-    font-size: 5.5vmin;
-    width: 8vmin;
-    height: 8vmin;
-  }
-
-  .cell-level-8 {
-    font-size: 6vmin;
-    width: 9vmin;
-    height: 9vmin;
-  }
-
-  .cell-level-7 {
-    font-size: 7.5vmin;
-    width: 10.5vmin;
-    height: 10.5vmin;
-  }
-
-  .cell-level-6 {
-    font-size: 8.5vmin;
-    width: 12.5vmin;
-    height: 12.5vmin;
-  }
-
-  .cell-level-5 {
-    font-size: 10vmin;
-    width: 15vmin;
-    height: 15vmin;
-  }
-
-  .cell-level-4 {
-    font-size: 10vmin;
-    width: 17vmin;
-    height: 17vmin;
-  }
+  .cell-level-4 { font-size: 17.5vmin; width: 17.5vmin; height: 17.5vmin; }
+  .cell-level-5 { font-size: 14vmin; width: 14vmin; height: 14vmin; }
+  .cell-level-6 { font-size: 11.67vmin; width: 11.67vmin; height: 11.67vmin; }
+  .cell-level-7 { font-size: 10vmin; width: 10vmin; height: 10vmin; }
+  .cell-level-8 { font-size: 8.75vmin; width: 8.75vmin; height: 8.75vmin; }
+  .cell-level-9 { font-size: 7.78vmin; width: 7.78vmin; height: 7.78vmin; }
+  .cell-level-10 { font-size: 7vmin; width: 7vmin; height: 7vmin; }
+  .cell-level-11 { font-size: 6.36vmin; width: 6.36vmin; height: 6.36vmin; }
+  .cell-level-12 { font-size: 5.83vmin; width: 5.83vmin; height: 5.83vmin; }
+  .cell-level-13 { font-size: 5.38vmin; width: 5.38vmin; height: 5.38vmin; }
+  .cell-level-14 { font-size: 5vmin; width: 5vmin; height: 5vmin; }
+  .cell-level-15 { font-size: 4.67vmin; width: 4.67vmin; height: 4.67vmin; }
+  .cell-level-16 { font-size: 4.38vmin; width: 4.38vmin; height: 4.38vmin; }
+  .cell-level-17 { font-size: 4.12vmin; width: 4.12vmin; height: 4.12vmin; }
+  .cell-level-18 { font-size: 3.89vmin; width: 3.89vmin; height: 3.89vmin; }
+  .cell-level-19 { font-size: 3.68vmin; width: 3.68vmin; height: 3.68vmin; }
+  .cell-level-20 { font-size: 3.5vmin; width: 3.5vmin; height: 3.5vmin; }
 }
 
 .cell-closed {
@@ -432,9 +272,16 @@
   border: 0.05vmin dotted rgb(86, 216, 0);
 }
 
-.innerText {
+.cell-icon {
+  font-size: 55%;
+  display: block;
+}
+
+.cell-text {
+  font-size: 65%;
   width: 100%;
   color: rgb(86, 216, 0);
+  display: block;
 }
 
 .footer {

@@ -75,7 +75,7 @@ export class Records extends React.Component {
           showWindow: true,
           showRecords: true,
           showNewRecord: false,
-          title: 'YOU WIN!',
+          title: 'GOOD! BUT NO RECORD',
         })
       }
     }
@@ -108,7 +108,7 @@ export class Records extends React.Component {
   
   render() {
     const { records, showWindow, showRecords, showNewRecord, title } = this.state
-    const { formFields, formErrors } = this.props
+    const { formFields, formErrors, timeAchieved } = this.props
     const rowElements = records.map(record =>
       <RecordsRow key={record.recordId} record={record} />
     )
@@ -119,6 +119,9 @@ export class Records extends React.Component {
         { showRecords &&
         <div className="records-grid-wrapper">
           <span className="records-title">{title}</span>
+          { timeAchieved > 0 &&
+            <span className="records-sub-title">{formatSecondsToTime(timeAchieved)}</span>
+          }
           { (!records || records.length === 0) &&
             <span className="records-spinner"><MDSpinner size="60" singleColor="rgb(86, 216, 0)"  /></span>
           }

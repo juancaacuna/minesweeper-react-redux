@@ -49,13 +49,13 @@ export default class Cell extends React.Component {
       return (
         <div className={`cell ${className}`}>
           { isOpened && hasMine &&
-            <span role="img" aria-label="bomb">💣</span>
+            <span role="img" aria-label="bomb" className="cell-icon">💣</span>
           }
           { !isOpened && hasFlag &&
-            <span role="img" aria-label="flag">🚩</span>
+            <span role="img" aria-label="flag" className="cell-icon">🚩</span>
           }
           { isOpened && minesAround > 0 && !hasMine &&
-            <span className="innerText">{minesAround}</span>
+            <span className="cell-text">{minesAround}</span>
           }
         </div>
       )
