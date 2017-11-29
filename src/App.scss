@@ -1,0 +1,362 @@
+$desktop-width: 1024px;
+$grid-w: 70vmin;
+$grid-h: 95vmin;
+$grid-min-rows: 4;
+$grid-max-rows: 20;
+$color-main-green: rgb(86, 216, 0);
+$color-dark-blue: rgb(0, 45, 104);
+$color-light-blue: rgb(90, 120, 202);
+
+@mixin device {
+  @media only screen and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media only screen and (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+///////////////////////
+// APP
+///////////////////////
+
+.App {
+  width: 100%;
+  height: 100%;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+.game-wrapper {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+///////////////////////
+// RECORDS
+///////////////////////
+
+.records-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.89);
+  color: white;
+  font-size: 3.5vmin;
+
+  .records-grid-wrapper {
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+  }
+  
+  .records-title {
+    font-size: 6.6vmin;
+    font-weight: bold;
+    margin-bottom: 2vmin;
+    display: block;
+  }
+  
+  .records-sub-title {
+    font-size: 3.6vmin;
+    font-weight: bold;
+    margin: -2vmin 0 2vmin 0;
+    display: block;
+    color: #fff700;
+  }
+  
+  .records-spinner {
+    padding: 5vmin 0;
+    display: block;
+  }
+  
+  .records-grid {
+    width: 90vmin;
+    text-align: center;
+  }
+  
+  .records-grid {
+    th {
+      font-size: 5vmin;
+      color: $color-main-green;
+    }
+  }
+  
+  .records-button {
+    border: 1px solid $color-light-blue;
+    color: white;
+    width: 90vmin;
+    vertical-align: middle;
+    font-size: 6vmin;
+    font-family: 'Courier';
+    padding: 7vmin 0;
+    display: inline-table;
+    margin-top: 3vmin;
+    text-align: center;
+    background-color: $color-dark-blue;
+  }
+  
+  .records-button:hover { 
+    background-color: rgb(0, 69, 160);
+    cursor: pointer;
+  }
+  
+  .records-button-disabled {
+    border: 1px solid rgb(78, 78, 78);
+    background-color: transparent;
+    color: rgb(128, 128, 128);
+  }
+  
+  .records-button-disabled:hover {
+    background-color: transparent;
+  }
+  
+  .records-input {
+    background-color: transparent;
+    width: 84vmin;
+    padding: 7vmin 3vmin;
+    color: white;
+    font-size: 6vmin;
+    font-family: 'Courier';
+  }
+  
+  .records-input-error {
+    border-color: red;
+  }
+}
+
+@include desktop {
+  .records-wrapper {
+    font-size: 2vmin;
+  }
+  .records-button {
+    padding: 3vmin 0;
+  }
+}
+
+///////////////////////
+// GAME HEADER
+///////////////////////
+
+.header {
+  color: white;
+  height: 15vmin;
+  display: table;
+  width: 100%;
+
+  .header-time {
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 8vmin;
+  }
+  
+  .flag-toggle {
+    position: absolute;
+    right: 0;
+    top: -2vmin;
+    font-size: 10vmin;
+    user-select: none;
+    outline: none;
+    background-color: #313131;
+    height: 15vmin;
+    width: 15vmin;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+
+    span {
+      left: 25%;
+      top: 10%;
+      position: absolute;
+    }
+  }
+  
+  .gray-filter {
+    filter: gray; /* IE6-9 */
+    -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
+    filter: grayscale(1); /* Microsoft Edge and Firefox 35+ */
+  }
+}
+
+@include desktop {
+  .flag-toggle { display: none; }
+}
+
+///////////////////////
+// GRID
+///////////////////////
+
+.grid {
+  border: 0.05vmin dotted rgb(39, 99, 0);
+  margin: 0 auto;
+  cursor: pointer;
+  border-spacing: 0px;
+
+  .cell-td {
+    padding: 0px !important;
+  
+    .cell-wrapper {
+      display: table;
+      table-layout: fixed;
+      padding: 0;
+      border-spacing: 0px;
+      font-size: 3vmin;
+      width: 5vmin;
+      height: 5vmin;
+    
+      .cell {
+        text-align: center;
+        vertical-align: middle;
+        border: 0.05vmin solid rgb(0, 0, 0);
+        display: table-cell;
+      }
+      
+      .cell-closed {
+        background-color: rgb(81, 154, 0);
+      }
+      
+      .cell-bomb {
+        background-color: rgb(255, 106, 106);
+        border: 0.05vmin dotted rgb(170, 0, 0);
+      }
+      
+      .cell-number {
+        background-color: transparent;
+        border: 0.05vmin dotted $color-main-green;
+      }
+      
+      .cell-empty {
+        border: 0.05vmin dotted $color-main-green;
+      }
+      
+      .cell-flag {
+        background-color: transparent;
+        border: 0.05vmin dotted $color-main-green;
+      }
+      
+      .cell-icon {
+        font-size: 55%;
+        display: block;
+      }
+      
+      .cell-text {
+        font-size: 65%;
+        width: 100%;
+        color: $color-main-green;
+        display: block;
+      }  
+    }
+    @mixin cell-size($grid-size, $level) {
+      font-size: $grid-size / $level;
+      width: $grid-size / $level;
+      height: $grid-size / $level;
+    }
+    
+    @include device {
+      @for $i from $grid-min-rows through $grid-max-rows {
+        .cell-level-#{$i} { @include cell-size($grid-h, $i); }
+      }
+    }
+    
+    @include desktop {
+      @for $i from $grid-min-rows through $grid-max-rows {
+        .cell-level-#{$i} { @include cell-size($grid-w, $i); }
+      }
+    }
+  }
+}
+
+///////////////////////
+// GAME FOOTER
+///////////////////////
+
+.footer {
+  color: white;
+  height: 15vmin;
+  width: 100%;
+  display: table;
+
+  .footer-row {
+    display: table-row;
+    padding-top: 4vmin;
+  }
+  
+  .footer-left {
+    display: table-cell;
+    max-width: 10vmin;
+    min-width: 10vmin;
+    vertical-align: middle;
+  }
+  
+  .footer-right {
+    display: table-cell;
+    vertical-align: middle;
+  }
+  
+  .footer-inner-label {
+    font-size: 3vmin;
+  }
+  
+  .footer-again {
+    border: 1px solid white;
+    width: 80%;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 4vmin;
+    padding: 2vmin 0;
+  }
+  
+  .footer-again:hover { 
+    background-color: $color-dark-blue;
+    cursor: pointer;
+    border-color: $color-light-blue;
+  }
+}
+
+///////////////////////
+// OVERRIDES
+///////////////////////
+
+.rangeslider {
+  margin-top: 0;
+}
+
+.rangeslider__handle {
+  background-color: rgba(255, 255, 255, 0.39) !important;
+  outline: none;
+}
+
+.rangeslider-horizontal .rangeslider__handle:after {
+  display: none;
+}
+
+.rangeslider__handle-label {
+  color: black;
+  margin-top: 20%;
+  user-select: none;
+  outline: none;
+}

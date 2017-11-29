@@ -6,6 +6,7 @@ Using:
  - [React.js](https://reactjs.org/)
  - [Redux](https://redux.js.org/)
  - [Redux Form](https://redux-form.com)
+ - [Sass](http://sass-lang.com/) (CSS preprocessor)
 
 
 Ready to play?
@@ -29,7 +30,7 @@ This game is connected to an API (for registering users and time records). This 
 
  - [Node.js](https://nodejs.org/en/)
  - [Express.js](https://expressjs.com/)
- - [Graphql](http://graphql.org/)
+ - [GraphQL](http://graphql.org/)
  - [Postgres](https://www.postgresql.org/)
  - [Postgres Docker-Hub](https://hub.docker.com/_/postgres/)
  
