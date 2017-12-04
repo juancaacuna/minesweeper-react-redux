@@ -7,7 +7,8 @@ export default class Cell extends React.Component {
       hasMine: props.info.hasMine,
       hasFlag: props.info.hasFlag,
       isOpened: props.info.isOpened,
-      minesAround: props.info.minesAround
+      minesAround: props.info.minesAround,
+      bgColor: props.bgColor
     }
   }
 
@@ -31,7 +32,8 @@ export default class Cell extends React.Component {
       isOpened,
       hasMine,
       hasFlag,
-      minesAround
+      minesAround,
+      bgColor
     } = this.state
 
     let className = 'cell-closed'
@@ -41,6 +43,10 @@ export default class Cell extends React.Component {
       className = hasMine ? 'cell-bomb' : className
     } else {
       className = hasFlag ? 'cell-flag' : className
+    }
+
+    if (className === 'cell-closed') {
+      className = `${className} bg-green-${bgColor}`
     }
 
     const rowsCount = this.props.gridRowCount

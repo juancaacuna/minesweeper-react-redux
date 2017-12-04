@@ -173,6 +173,12 @@
         width: 100%;
         color: #56d800;
         display: block; }
+      .grid .cell-td .cell-wrapper .bg-green-300 {
+        background-color: #5daf00; }
+      .grid .cell-td .cell-wrapper .bg-green-200 {
+        background-color: #519a00; }
+      .grid .cell-td .cell-wrapper .bg-green-100 {
+        background-color: #478500; }
     @media only screen and (max-width: 1023px) {
       .grid .cell-td .cell-level-4 {
         font-size: 23.75vmin;

@@ -268,7 +268,19 @@ $color-light-blue: rgb(90, 120, 202);
         width: 100%;
         color: $color-main-green;
         display: block;
-      }  
+      }
+
+      .bg-green-300 {
+        background-color: rgb(93, 175, 0);
+      }
+
+      .bg-green-200 {
+        background-color: rgb(81, 154, 0);
+      }
+
+      .bg-green-100 {
+        background-color: rgb(71, 133, 0);
+      }
     }
     @mixin cell-size($grid-size, $level) {
       font-size: $grid-size / $level;

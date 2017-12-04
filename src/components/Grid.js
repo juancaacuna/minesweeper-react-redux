@@ -6,19 +6,33 @@ import * as gameStatus from '../lib/gameStatus'
 import Cell from './Cell'
 
 class Grid extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      cellBgColors: []
+    }
+  }
 
   componentDidMount() {
     const gridSize = 10
     this.props.actions.initMinesGrid(gridSize, gridSize)
+    this.setState({
+      cellBgColors: this.generateCellBgColors(gridSize)
+    })
   }
 
   componentWillReceiveProps(nextProps) {
-    if(this.props.minesGrid.ColCount !== nextProps.minesGrid.ColCount &&
-      nextProps.minesGrid.GameStatus !== gameStatus.NEW){
+    const { minesGrid } = nextProps
+
+    if(this.props.minesGrid.ColCount !== minesGrid.ColCount &&
+      minesGrid.GameStatus !== gameStatus.NEW){
       this.props.actions.initMinesGrid(
-        nextProps.minesGrid.RowCount,
-        nextProps.minesGrid.ColCount
+        minesGrid.RowCount,
+        minesGrid.ColCount
       )
+      this.setState({
+        cellBgColors: this.generateCellBgColors(minesGrid.RowCount)
+      })
     }
   }
 
@@ -38,6 +52,14 @@ class Grid extends React.Component {
     }
   }
 
+  generateCellBgColors(gridSize) {
+    return Array.apply(null, Array(gridSize)).map((y) => {
+      return Array.apply(null, Array(gridSize)).map((x, i) => {
+        return (Math.floor(Math.random() * 3) + 1) * 100
+      })
+    })
+  }
+
   render() {
     const {
       minesGrid
@@ -53,6 +75,7 @@ class Grid extends React.Component {
               flagToggle={minesGrid.FlagToggle}
               openCell={this.openCell.bind(this)}
               flagCell={this.flagCell.bind(this)}
+              bgColor={this.state.cellBgColors[cell.y][cell.x]}
             />
           </td>
         );
