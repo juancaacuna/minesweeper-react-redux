@@ -20,6 +20,9 @@ export class Footer extends React.Component {
   resetGame() {
     const { sliderValue } = this.state
     this.props.actions.initMinesGrid(sliderValue, sliderValue)
+    if (this.props.flagToggle) {
+      this.props.actions.toggleFlag()
+    }
   }
 
   handleSliderChange = value => {
@@ -54,7 +57,8 @@ export class Footer extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    rowCount: state.minesGrid.RowCount
+    rowCount: state.minesGrid.RowCount,
+    flagToggle: state.minesGrid.FlagToggle,
   }
 }
 

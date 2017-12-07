@@ -24,12 +24,13 @@ class Grid extends React.Component {
   componentWillReceiveProps(nextProps) {
     const { minesGrid } = nextProps
 
-    if(this.props.minesGrid.ColCount !== minesGrid.ColCount &&
-      minesGrid.GameStatus !== gameStatus.NEW){
-      this.props.actions.initMinesGrid(
-        minesGrid.RowCount,
-        minesGrid.ColCount
-      )
+    if(this.props.minesGrid.ColCount !== minesGrid.ColCount) {
+      if (minesGrid.GameStatus !== gameStatus.NEW){
+        this.props.actions.initMinesGrid(
+          minesGrid.RowCount,
+          minesGrid.ColCount
+        )
+      }
       this.setState({
         cellBgColors: this.generateCellBgColors(minesGrid.RowCount)
       })
